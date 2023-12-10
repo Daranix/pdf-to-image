@@ -1,5 +1,5 @@
 {
-  "name": "pdf-to-image",
+  "name": "@daranix/pdf-to-image",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
