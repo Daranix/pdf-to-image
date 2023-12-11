@@ -1,9 +1,8 @@
 {
   "name": "@daranix/pdf-to-image",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
@@ -13,9 +12,7 @@
     "ci": "npm install && npm run build",
     "dev": "ts-node src/test.ts",
     "test": "jest",
-    "build": "rm -rf dist/ && npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
+    "build": "tsc -p tsconfig.json"
   },
   "author": "Esteban Mayoral",
   "license": "AGPL-3.0-or-later",
