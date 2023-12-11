@@ -1,5 +1,5 @@
 
-import { ImageMagick, Magick, MagickFormat, initializeImageMagick } from '@imagemagick/magick-wasm';
+import { ImageMagick, MagickFormat, initializeImageMagick } from '@imagemagick/magick-wasm';
 // @ts-ignore
 import * as mupdf from 'mupdf';
 
@@ -76,5 +76,5 @@ function convertToFormat(buffer: Uint8Array, format: ImageFormat): Promise<Uint8
 
 function getMagickFormat(format: ImageFormat) {
     const values = Object.values(MagickFormat);
-    return values.find((v) => v === format);
+    return values.find((v) => v === format)!;
 }
