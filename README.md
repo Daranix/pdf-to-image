@@ -12,7 +12,7 @@ A simple library to convert any PDF into a image
 - Install&Go 🚀🚀  doesn't require any extra binaries to be installed on your system.
 
 
-## Usage Example:
+## 📚 Usage Example:
 
 Node.js
 
