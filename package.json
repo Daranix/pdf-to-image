@@ -1,6 +1,6 @@
 {
-  "name": "@daranix/pdf-to-image",
-  "version": "1.0.2",
+  "name": "@daranix/pdf-to-image-test",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/index.js",
   "files": [
@@ -18,7 +18,12 @@
   "license": "AGPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Daranix/pdf-to-image"
+    "url": "https://github.com/Daranix/pdf-to-image",
+    "directory": "dist"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "directory": "./dist"
   },
   "keywords": [
     "pdf",
