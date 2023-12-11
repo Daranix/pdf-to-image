@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node index.js",
     "tsc": "tsc",
-    "ci": "npm run build",
+    "ci": "npm install && npm run build",
     "dev": "ts-node src/test.ts",
     "test": "jest",
     "build": "rm -rf dist/ && npm run build:esm && npm run build:cjs",
