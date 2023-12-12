@@ -1,20 +1,25 @@
 
-import { ImageMagick, MagickFormat, initializeImageMagick } from '@imagemagick/magick-wasm';
 // @ts-ignore
 import * as mupdf from 'mupdf';
+import Vips from 'wasm-vips';
 
 
 
 export const IMG_ALLOWED_FORMATS = [
-    `${MagickFormat.Jpeg}`,
-    `${MagickFormat.Png}`,
-    `${MagickFormat.Bmp}`,
+    // `${MagickFormat.Jpeg}`,
+    // `${MagickFormat.Png}`,
+    //`${MagickFormat.Bmp}`,
     //`${MagickFormat.Webp}`,
     //`${MagickFormat.Avif}`, 
     //`${MagickFormat.Apng}`, 
-    `${MagickFormat.Gif}`,
-    `${MagickFormat.Tiff}`,
+    // `${MagickFormat.Gif}`,
+    //`${MagickFormat.Tiff}`,
     //`${MagickFormat.Ico}`
+    'JPEG',
+    'PNG',
+    'GIF',
+    'WEBP'
+
 ] as const
 
 export type ImageFormat = typeof IMG_ALLOWED_FORMATS[number];
@@ -60,6 +65,15 @@ async function convertPage(page: mupdf.PDFPage, format: ImageFormat, dpi = DEFAU
 
 
 
+
+
+async function convertToFormat(buffer: Uint8Array, format: ImageFormat) {
+    const vips = await Vips();
+    const image = vips.Image.pngloadBuffer(buffer);
+    return image.writeToBuffer(`.${format.toLowerCase()}`)
+}
+
+/*
 function convertToFormat(buffer: Uint8Array, format: ImageFormat): Promise<Uint8Array> {
     return new Promise(async (resolve, reject) => {
         await initializeImageMagick('./node_modules/@imagemagick/magick-wasm/dist/magick.wasm');
@@ -72,9 +86,10 @@ function convertToFormat(buffer: Uint8Array, format: ImageFormat): Promise<Uint8
         });
     });
 
-}
+}*/
 
+/*
 function getMagickFormat(format: ImageFormat) {
     const values = Object.values(MagickFormat);
     return values.find((v) => v === format)!;
-}
+}*/
